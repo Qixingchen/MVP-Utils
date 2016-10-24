@@ -2,7 +2,6 @@ package moe.xing.mvp_utils;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
 import android.support.v4.app.Fragment;
@@ -13,9 +12,6 @@ import android.view.ViewGroup;
 
 import me.yokeyword.fragmentation.SupportFragment;
 import moe.xing.baseutils.utils.LogHelper;
-import rx.Observable;
-import rx.Subscriber;
-import rx.Subscription;
 
 /**
  * Created by Qi xingchen on 2016/7/14 0014.
@@ -25,7 +21,6 @@ public abstract class BaseFragment extends SupportFragment {
 
     protected View mRootView;
     protected Context mContext;
-    protected Subscription mSubscription;
     protected android.support.v7.app.ActionBar mActionBar;
     protected String title;
     protected Fragment mFragment = this;
@@ -66,13 +61,6 @@ public abstract class BaseFragment extends SupportFragment {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        try {
-            mSubscription.unsubscribe();
-        } catch (Exception ignore) {
-        }
-        if (mSubscription != null && !mSubscription.isUnsubscribed()) {
-            mSubscription.unsubscribe();
-        }
     }
 
     /**
@@ -120,41 +108,5 @@ public abstract class BaseFragment extends SupportFragment {
         } else {
             return super.onBackPressedSupport();
         }
-    }
-
-    /**
-     * fragment 生命周期与 Rx 协调
-     * 判断 能否安全进行UI操作
-     * 失败的操作调用 {@link Subscriber#onError(Throwable)} 并传递失败原因
-     * 成功的操作调用 {@link Subscriber#onNext(Object)} 传递结果
-     */
-    @NonNull
-    public <T> Observable.Operator<T, T> fragmentLifeTime() {
-        return new Observable.Operator<T, T>() {
-            @Override
-            public Subscriber<? super T> call(final Subscriber<? super T> subscriber) {
-                return new Subscriber<T>() {
-                    @Override
-                    public void onCompleted() {
-
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-                        if (isAdded()) {
-                            subscriber.onError(e);
-                            LogHelper.e(e);
-                        }
-                    }
-
-                    @Override
-                    public void onNext(T t) {
-                        if (isAdded()) {
-                            subscriber.onNext(t);
-                        }
-                    }
-                };
-            }
-        };
     }
 }

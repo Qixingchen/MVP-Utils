@@ -3,7 +3,6 @@ package moe.xing.mvp_utils;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
 import android.text.TextUtils;
@@ -12,8 +11,6 @@ import android.view.WindowManager;
 
 import me.yokeyword.fragmentation.SupportActivity;
 import moe.xing.baseutils.utils.LogHelper;
-import rx.Observable;
-import rx.Subscriber;
 
 /**
  * Created by Qi xingchen on 2016/7/14 0014.
@@ -99,42 +96,5 @@ public class BaseActivity extends SupportActivity {
     public void showMessage(@StringRes int message, String message2) {
         showMessage(getString(message) + message2);
     }
-
-    /**
-     * activity 生命周期与 Rx 协调
-     * 判断 能否安全进行UI操作
-     * 失败的操作调用 {@link Subscriber#onError(Throwable)} 并传递失败原因
-     * 成功的操作调用 {@link Subscriber#onNext(Object)} 传递结果
-     */
-    @NonNull
-    public <T> Observable.Operator<T, T> activityLifeTime() {
-        return new Observable.Operator<T, T>() {
-            @Override
-            public Subscriber<? super T> call(final Subscriber<? super T> subscriber) {
-                return new Subscriber<T>() {
-                    @Override
-                    public void onCompleted() {
-
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-                        if (active) {
-                            subscriber.onError(e);
-                            LogHelper.e(e);
-                        }
-                    }
-
-                    @Override
-                    public void onNext(T t) {
-                        if (active) {
-                            subscriber.onNext(t);
-                        }
-                    }
-                };
-            }
-        };
-    }
-
 
 }
