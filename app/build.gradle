@@ -35,7 +35,7 @@ dependencies {
     })
     testCompile 'junit:junit:4.12'
 
-    debugCompile "com.github.qiyulan:Android-Base-Utils:V1.4.0"
+    compile "com.github.qiyulan:Android-Base-Utils:V1.4.0"
 
     compile "com.android.support:appcompat-v7:$supportLibraryVersion"
     //fragment

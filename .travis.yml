@@ -28,6 +28,7 @@ android:
   
 script:
   - ./gradlew assembleDebug
+  - ./gradlew assembleRelease
   - ./gradlew jacocoTestReportDebug coveralls
 #  - ./gradlew testDebugUnitTest
 #  - ./gradlew createDebugCoverageReport coveralls
