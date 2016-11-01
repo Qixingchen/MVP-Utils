@@ -59,7 +59,7 @@ public class BaseActivity extends SupportActivity {
             mDialog.dismiss();
             mDialog = null;
         }
-        mDialog = new ProgressDialog(mActivity, android.R.style.Theme_Translucent_NoTitleBar);
+        mDialog = new ProgressDialog(mActivity);
         WindowManager.LayoutParams params = mDialog.getWindow()
                 .getAttributes();
         params.dimAmount = 0f;
