@@ -59,7 +59,7 @@ public class BaseActivity extends SupportActivity {
             mDialog.dismiss();
             mDialog = null;
         }
-        mDialog = new ProgressDialog(mActivity);
+        mDialog = new ProgressDialog(mActivity, android.R.style.Theme_Translucent_NoTitleBar);
         WindowManager.LayoutParams params = mDialog.getWindow()
                 .getAttributes();
         params.dimAmount = 0f;
@@ -69,6 +69,7 @@ public class BaseActivity extends SupportActivity {
             title = "加载中...";
         }
         mDialog.setTitle(title);
+        mDialog.setCancelable(false);
         mDialog.show();
     }
 
