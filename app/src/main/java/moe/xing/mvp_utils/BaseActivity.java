@@ -2,10 +2,12 @@ package moe.xing.mvp_utils;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
 import android.text.TextUtils;
+import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 
@@ -96,6 +98,26 @@ public class BaseActivity extends SupportActivity {
 
     public void showMessage(@StringRes int message, String message2) {
         showMessage(getString(message) + message2);
+    }
+
+    /**
+     * 设置暗色状态栏图标
+     *
+     * @param needDark {@code true} 需要暗色图标
+     */
+    public void setDarkStatusIcon(boolean needDark) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            View decorView = getWindow().getDecorView();
+            if (decorView != null) {
+                int vis = decorView.getSystemUiVisibility();
+                if (needDark) {
+                    vis |= View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR;
+                } else {
+                    vis &= ~View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR;
+                }
+                decorView.setSystemUiVisibility(vis);
+            }
+        }
     }
 
 }
