@@ -24,6 +24,7 @@ public abstract class BaseFragment extends SupportFragment {
     protected android.support.v7.app.ActionBar mActionBar;
     protected String title;
     protected Fragment mFragment = this;
+    protected boolean viewExisted = false;
 
     @Nullable
     @Override
@@ -31,6 +32,7 @@ public abstract class BaseFragment extends SupportFragment {
         mRootView = CreateView(inflater, container, savedInstanceState);
         assert mRootView != null;
         ViewFound(mRootView);
+        viewExisted = true;
         return mRootView;
     }
 
