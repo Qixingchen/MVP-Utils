@@ -3,6 +3,7 @@ apply plugin: "com.vanniktech.android.junit.jacoco"
 
 buildscript {
     repositories {
+        mavenCentral()
         jcenter()
     }
     dependencies {
