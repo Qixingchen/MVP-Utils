@@ -13,6 +13,7 @@ import android.view.WindowManager;
 
 import me.yokeyword.fragmentation.SupportActivity;
 import moe.xing.baseutils.utils.LogHelper;
+import moe.xing.baseutils.utils.TextHelper;
 
 /**
  * Created by Qi xingchen on 2016/7/14 0014.
@@ -89,7 +90,13 @@ public class BaseActivity extends SupportActivity {
     }
 
     public void showMessage(Throwable e) {
-        showMessage(e.getLocalizedMessage());
+        String message;
+        if (TextHelper.isVisible(e.getLocalizedMessage())) {
+            message = e.getLocalizedMessage();
+        } else {
+            message = e.toString();
+        }
+        showMessage(message);
     }
 
     public void showMessage(@StringRes int message) {

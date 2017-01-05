@@ -11,7 +11,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import me.yokeyword.fragmentation.SupportFragment;
-import moe.xing.baseutils.utils.LogHelper;
 
 /**
  * Created by Qi xingchen on 2016/7/14 0014.
@@ -75,19 +74,19 @@ public abstract class BaseFragment extends SupportFragment {
     }
 
     public void showMessage(String message) {
-        LogHelper.Snackbar(mRootView, message);
+        ((BaseActivity) _mActivity).showMessage(message);
     }
 
     public void showMessage(Throwable e) {
-        showMessage(e.getLocalizedMessage());
+        ((BaseActivity) _mActivity).showMessage(e);
     }
 
     public void showMessage(@StringRes int message) {
-        showMessage(getString(message));
+        ((BaseActivity) _mActivity).showMessage(message);
     }
 
     public void showMessage(@StringRes int message, String message2) {
-        showMessage(getString(message) + " " + message2);
+        ((BaseActivity) _mActivity).showMessage(message, message2);
     }
 
     public void showProgressDialog() {
