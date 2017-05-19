@@ -2,6 +2,7 @@ package moe.xing.mvp_utils;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
 import android.support.v4.app.Fragment;
@@ -49,14 +50,14 @@ public abstract class BaseFragment extends SupportFragment {
 
     protected abstract String getTitle();
 
+    protected abstract void setTitle(@NonNull String title);
+
     @Override
     public void onResume() {
         super.onResume();
         mActionBar = ((AppCompatActivity) getActivity()).getSupportActionBar();
         title = getTitle();
-        if (mActionBar != null) {
-            mActionBar.setTitle(title);
-        }
+        setTitle(title);
     }
 
     @Override
