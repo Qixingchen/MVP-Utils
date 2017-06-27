@@ -1,3 +1,6 @@
+## V1.1.7
+fragmentation update to V1.0.0
+
 ## V1.1.6
 
 add setTitle method in BaseFragment.
