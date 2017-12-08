@@ -3,6 +3,7 @@ apply plugin: "com.vanniktech.android.junit.jacoco"
 
 buildscript {
     repositories {
+        google ()
         mavenCentral()
         jcenter()
     }
@@ -18,11 +19,9 @@ buildscript {
 
 allprojects {
     repositories {
+        google ()
         jcenter()
         maven { url "https://jitpack.io" }
-        maven {
-            url "https://maven.google.com"
-        }
     }
 }
 
