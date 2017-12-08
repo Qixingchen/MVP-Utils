@@ -15,6 +15,8 @@ import me.yokeyword.fragmentation.SupportFragment;
 
 /**
  * Created by Qi xingchen on 2016/7/14 0014.
+ * <p>
+ * Fragment 抽象类
  */
 @SuppressWarnings({"WeakerAccess", "unused"})
 public abstract class BaseFragment extends SupportFragment {
@@ -94,7 +96,7 @@ public abstract class BaseFragment extends SupportFragment {
         showProgressDialog("");
     }
 
-    public void showProgressDialog(String title) {
+    public void showProgressDialog(@SuppressWarnings("SameParameterValue") String title) {
         ((BaseActivity) _mActivity).showProgressDialog(title);
     }
 
@@ -104,7 +106,7 @@ public abstract class BaseFragment extends SupportFragment {
 
     @Override
     public boolean onBackPressedSupport() {
-        if (getFragmentManager().getBackStackEntryCount() > 0) {
+        if (getFragmentManager() != null && getFragmentManager().getBackStackEntryCount() > 0) {
             getFragmentManager().popBackStack();
             return true;
         } else {

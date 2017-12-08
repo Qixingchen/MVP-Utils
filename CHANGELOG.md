@@ -1,3 +1,7 @@
+## V1.1.8
+fragmentation update to V1.1.9
+fix getFragmentManager NPE
+
 ## V1.1.7
 fragmentation update to V1.0.0
 
