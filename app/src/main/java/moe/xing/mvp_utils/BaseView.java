@@ -1,6 +1,7 @@
 package moe.xing.mvp_utils;
 
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
 
 /**
@@ -29,6 +30,8 @@ public interface BaseView<T extends BasePresenter> {
     void showProgressDialog();
 
     void showProgressDialog(String title);
+
+    void showProgressDialog(String title, @Nullable Integer now, @Nullable Integer max);
 
     void dismissProgressDialog();
 

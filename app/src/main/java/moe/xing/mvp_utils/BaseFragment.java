@@ -97,7 +97,11 @@ public abstract class BaseFragment extends SupportFragment {
     }
 
     public void showProgressDialog(@SuppressWarnings("SameParameterValue") String title) {
-        ((BaseActivity) _mActivity).showProgressDialog(title);
+        showProgressDialog(title, null, null);
+    }
+
+    public void showProgressDialog(@SuppressWarnings("SameParameterValue") String title, @Nullable Integer now, @Nullable Integer max) {
+        ((BaseActivity) _mActivity).showProgressDialog(title, now, max);
     }
 
     public void dismissProgressDialog() {

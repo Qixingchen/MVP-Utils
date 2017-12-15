@@ -58,28 +58,49 @@ public class BaseActivity extends SupportActivity {
     }
 
     public void showProgressDialog(String title) {
-        if (mDialog != null) {
-            mDialog.dismiss();
-            mDialog = null;
-        }
-        mDialog = new ProgressDialog(mActivity);
-        WindowManager.LayoutParams params = mDialog.getWindow()
-                .getAttributes();
-        params.dimAmount = 0f;
-        mDialog.getWindow().setAttributes(params);
-
-        if (TextUtils.isEmpty(title)) {
-            title = "加载中...";
-        }
-        mDialog.setTitle(title);
-        mDialog.setCancelable(false);
-        mDialog.show();
+        showProgressDialog(title, null, null);
     }
 
     public void dismissProgressDialog() {
         if (mDialog != null) {
             mDialog.dismiss();
             mDialog = null;
+        }
+    }
+
+    public void showProgressDialog(String title, @Nullable Integer now, @Nullable Integer max) {
+        if (now == null && mDialog != null) {
+            mDialog.dismiss();
+            mDialog = null;
+        }
+        if (mDialog == null) {
+            mDialog = new ProgressDialog(mActivity);
+        }
+        if (now != null && max != null) {
+            if (mDialog.isIndeterminate()) {
+                mDialog.dismiss();
+                mDialog = new ProgressDialog(mActivity);
+            }
+            mDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+            if (mDialog.getMax() == 100 && max != 100) {
+                mDialog.setMax(max);
+            }
+            mDialog.setProgress(now);
+        }
+
+        if (!mDialog.isShowing()) {
+
+            WindowManager.LayoutParams params = mDialog.getWindow()
+                    .getAttributes();
+            params.dimAmount = 0f;
+            mDialog.getWindow().setAttributes(params);
+
+            if (TextUtils.isEmpty(title)) {
+                title = "加载中...";
+            }
+            mDialog.setTitle(title);
+            mDialog.setCancelable(false);
+            mDialog.show();
         }
     }
 

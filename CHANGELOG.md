@@ -1,3 +1,6 @@
+## V1.1.9
+add  showProgressDialog(String title, Integer now,Integer max) 
+
 ## V1.1.8
 fragmentation update to V1.1.9
 fix getFragmentManager NPE
