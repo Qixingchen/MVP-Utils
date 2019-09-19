@@ -2,14 +2,10 @@ package moe.xing.mvp_demo;
 
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.support.annotation.Nullable;
 
-import java.util.concurrent.TimeUnit;
-
+import androidx.annotation.Nullable;
 import moe.xing.baseutils.utils.LogHelper;
 import moe.xing.mvp_utils.BaseActivity;
-import rx.Observable;
-import rx.functions.Action1;
 
 /**
  * Created by Qi Xingchen on 2017-12-15.

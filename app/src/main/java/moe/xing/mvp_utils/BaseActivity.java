@@ -4,13 +4,13 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.annotation.StringRes;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 
+import androidx.annotation.Nullable;
+import androidx.annotation.StringRes;
 import me.yokeyword.fragmentation.SupportActivity;
 import moe.xing.baseutils.utils.LogHelper;
 import moe.xing.baseutils.utils.TextHelper;

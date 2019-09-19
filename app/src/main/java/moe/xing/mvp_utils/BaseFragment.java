@@ -2,15 +2,15 @@ package moe.xing.mvp_utils;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.annotation.StringRes;
-import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.StringRes;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import me.yokeyword.fragmentation.SupportFragment;
 
 /**
@@ -23,7 +23,7 @@ public abstract class BaseFragment extends SupportFragment {
 
     protected View mRootView;
     protected Context mContext;
-    protected android.support.v7.app.ActionBar mActionBar;
+    protected androidx.appcompat.app.ActionBar mActionBar;
     protected String title;
     protected Fragment mFragment = this;
     protected boolean viewExisted = false;
