@@ -1,3 +1,6 @@
+## V1.2.0
+change to AndroidX
+
 ## V1.1.9
 add  showProgressDialog(String title, Integer now,Integer max) 
 

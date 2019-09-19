@@ -110,7 +110,7 @@ public abstract class BaseFragment extends SupportFragment {
 
     @Override
     public boolean onBackPressedSupport() {
-        if (getFragmentManager() != null && getFragmentManager().getBackStackEntryCount() > 0) {
+        if (getFragmentManager() != null && getFragmentManager().getBackStackEntryCount() > 0 && isAdded()) {
             getFragmentManager().popBackStack();
             return true;
         } else {

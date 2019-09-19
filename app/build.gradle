@@ -1,13 +1,13 @@
 apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'com.github.kt3k.coveralls'
-apply plugin: 'jacoco'
+//apply plugin: 'jacoco'
 
 android {
     compileSdkVersion rootProject.ext.sdk_version
 
     defaultConfig {
-        minSdkVersion 19
+        minSdkVersion 21
         targetSdkVersion rootProject.ext.sdk_version
         versionCode 1
         versionName "1.0"
@@ -38,7 +38,8 @@ dependencies {
 
     implementation "com.android.support:appcompat-v7:$supportLibraryVersion"
     //fragment
-    api 'me.yokeyword:fragmentation:1.1.9'
+    api 'me.yokeyword:fragmentationx-core:1.0.1'
+    api 'me.yokeyword:fragmentationx:1.0.1'
 }
 // build a jar with source files
 task sourcesJar(type: Jar) {
