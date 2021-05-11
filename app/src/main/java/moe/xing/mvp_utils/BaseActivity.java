@@ -1,7 +1,9 @@
 package moe.xing.mvp_utils;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -100,6 +102,13 @@ public class BaseActivity extends SupportActivity {
             }
             mDialog.setTitle(title);
             mDialog.setCancelable(false);
+            mDialog.setButton(AlertDialog.BUTTON_NEGATIVE, "取消显示进度框", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    mDialog.dismiss();
+                    mDialog = null;
+                }
+            });
             mDialog.show();
         }
     }
