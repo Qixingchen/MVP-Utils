@@ -1,3 +1,6 @@
+## V1.3.0
+allow dismiss alert dialog
+
 ## V1.2.0
 change to AndroidX
 
