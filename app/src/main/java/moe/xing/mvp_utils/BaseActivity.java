@@ -76,12 +76,12 @@ public class BaseActivity extends SupportActivity {
             mDialog = null;
         }
         if (mDialog == null) {
-            mDialog = new ProgressDialog(mActivity);
+            mDialog = new ProgressDialog(mActivity, android.R.style.Theme_Material_Light_Dialog_Alert);
         }
         if (now != null && max != null) {
             if (mDialog.isIndeterminate()) {
                 mDialog.dismiss();
-                mDialog = new ProgressDialog(mActivity);
+                mDialog = new ProgressDialog(mActivity, android.R.style.Theme_Material_Light_Dialog_Alert);
             }
             mDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
             if (mDialog.getMax() == 100 && max != 100) {
