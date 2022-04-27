@@ -1,5 +1,5 @@
 apply plugin: 'com.android.library'
-apply plugin: 'com.github.kt3k.coveralls'
+//apply plugin: 'com.github.kt3k.coveralls'
 apply plugin: 'maven-publish'
 //apply plugin: 'jacoco'
 
@@ -45,33 +45,33 @@ task sourcesJar(type: Jar) {
     classifier = 'sources'
 }
 
-task javadoc(type: Javadoc) {
-    failOnError  false
-    source = android.sourceSets.main.java.sourceFiles
-    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
-    classpath += configurations.compile
-}
+//task javadoc(type: Javadoc) {
+//    failOnError  false
+//    source = android.sourceSets.main.java.sourceFiles
+//    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+//    classpath += configurations.compile
+//}
 
 // build a jar with javadoc
-task javadocJar(type: Jar, dependsOn: javadoc) {
-    classifier = 'javadoc'
-    from javadoc.destinationDir
-}
-
-[javadoc]*.options*.encoding = 'UTF-8'
-[javadoc]*.options*.charSet = 'UTF-8'
+//task javadocJar(type: Jar, dependsOn: javadoc) {
+//    classifier = 'javadoc'
+//    from javadoc.destinationDir
+//}
+//
+//[javadoc]*.options*.encoding = 'UTF-8'
+//[javadoc]*.options*.charSet = 'UTF-8'
 
 artifacts {
     archives sourcesJar
-    archives javadocJar
+//    archives javadocJar
 }
 
-coveralls {
-    jacocoReportPath = "${buildDir}/reports/jacoco/debug/jacoco.xml"
-}
+//coveralls {
+//    jacocoReportPath = "${buildDir}/reports/jacoco/debug/jacoco.xml"
+//}
 
-tasks.coveralls {
-    dependsOn 'assembleDebugUnitTest'
-    onlyIf { System.env.'CI' }
-}
+//tasks.coveralls {
+//    dependsOn 'assembleDebugUnitTest'
+//    onlyIf { System.env.'CI' }
+//}
 
