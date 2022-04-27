@@ -13,7 +13,6 @@ import android.view.WindowManager;
 
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
-import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.FragmentActivity;
 
 import moe.xing.baseutils.utils.LogHelper;
