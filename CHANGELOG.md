@@ -1,3 +1,6 @@
+## V2.0.0
+break remove me.yokeyword.fragmentation
+
 ## V1.3.0
 allow dismiss alert dialog
 

@@ -11,7 +11,6 @@ import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import me.yokeyword.fragmentation.SupportFragment;
 
 /**
  * Created by Qi xingchen on 2016/7/14 0014.
@@ -19,7 +18,7 @@ import me.yokeyword.fragmentation.SupportFragment;
  * Fragment 抽象类
  */
 @SuppressWarnings({"WeakerAccess", "unused"})
-public abstract class BaseFragment extends SupportFragment {
+public abstract class BaseFragment extends Fragment {
 
     protected View mRootView;
     protected Context mContext;
@@ -77,19 +76,19 @@ public abstract class BaseFragment extends SupportFragment {
     }
 
     public void showMessage(String message) {
-        ((BaseActivity) _mActivity).showMessage(message);
+        ((BaseActivity) getActivity()).showMessage(message);
     }
 
     public void showMessage(Throwable e) {
-        ((BaseActivity) _mActivity).showMessage(e);
+        ((BaseActivity) getActivity()).showMessage(e);
     }
 
     public void showMessage(@StringRes int message) {
-        ((BaseActivity) _mActivity).showMessage(message);
+        ((BaseActivity) getActivity()).showMessage(message);
     }
 
     public void showMessage(@StringRes int message, String message2) {
-        ((BaseActivity) _mActivity).showMessage(message, message2);
+        ((BaseActivity) getActivity()).showMessage(message, message2);
     }
 
     public void showProgressDialog() {
@@ -101,20 +100,11 @@ public abstract class BaseFragment extends SupportFragment {
     }
 
     public void showProgressDialog(@SuppressWarnings("SameParameterValue") String title, @Nullable Integer now, @Nullable Integer max) {
-        ((BaseActivity) _mActivity).showProgressDialog(title, now, max);
+        ((BaseActivity) getActivity()).showProgressDialog(title, now, max);
     }
 
     public void dismissProgressDialog() {
-        ((BaseActivity) _mActivity).dismissProgressDialog();
+        ((BaseActivity) getActivity()).dismissProgressDialog();
     }
 
-    @Override
-    public boolean onBackPressedSupport() {
-        if (getFragmentManager() != null && getFragmentManager().getBackStackEntryCount() > 0 && isAdded()) {
-            getFragmentManager().popBackStack();
-            return true;
-        } else {
-            return super.onBackPressedSupport();
-        }
-    }
 }

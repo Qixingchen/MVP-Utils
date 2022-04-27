@@ -13,8 +13,9 @@ import android.view.WindowManager;
 
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
+import androidx.core.app.ActivityCompat;
+import androidx.fragment.app.FragmentActivity;
 
-import me.yokeyword.fragmentation.SupportActivity;
 import moe.xing.baseutils.utils.LogHelper;
 import moe.xing.baseutils.utils.TextHelper;
 
@@ -24,7 +25,7 @@ import moe.xing.baseutils.utils.TextHelper;
  * activity 基类
  */
 @SuppressWarnings({"WeakerAccess", "unused"})
-public class BaseActivity extends SupportActivity {
+public class BaseActivity extends FragmentActivity {
 
     protected Activity mActivity;
 
