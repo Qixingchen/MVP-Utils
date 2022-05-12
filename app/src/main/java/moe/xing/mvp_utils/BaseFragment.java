@@ -77,19 +77,19 @@ public abstract class BaseFragment extends SupportFragment {
     }
 
     public void showMessage(String message) {
-        ((BaseActivity) _mActivity).showMessage(message);
+        ((BaseActivity) getActivity()).showMessage(message);
     }
 
     public void showMessage(Throwable e) {
-        ((BaseActivity) _mActivity).showMessage(e);
+        ((BaseActivity) getActivity()).showMessage(e);
     }
 
     public void showMessage(@StringRes int message) {
-        ((BaseActivity) _mActivity).showMessage(message);
+        ((BaseActivity) getActivity()).showMessage(message);
     }
 
     public void showMessage(@StringRes int message, String message2) {
-        ((BaseActivity) _mActivity).showMessage(message, message2);
+        ((BaseActivity) getActivity()).showMessage(message, message2);
     }
 
     public void showProgressDialog() {
@@ -101,11 +101,11 @@ public abstract class BaseFragment extends SupportFragment {
     }
 
     public void showProgressDialog(@SuppressWarnings("SameParameterValue") String title, @Nullable Integer now, @Nullable Integer max) {
-        ((BaseActivity) _mActivity).showProgressDialog(title, now, max);
+        ((BaseActivity) getActivity()).showProgressDialog(title, now, max);
     }
 
     public void dismissProgressDialog() {
-        ((BaseActivity) _mActivity).dismissProgressDialog();
+        ((BaseActivity) getActivity()).dismissProgressDialog();
     }
 
     @Override
